@@ -48,7 +48,7 @@ This document is on git, should be okay
 - [ ] Add `@login_required()` on every view
 ### 5.2 Route list
 - [x] Redirect here after login
-- [ ] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
+- [x] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
 - [ ] Add a few routes
 - [ ] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
 - [ ] Set the url to `itineraires/`
@@ -65,3 +65,4 @@ This document is on git, should be okay
 ### 5.x Extra ideas 
 - [ ] Refine the template for `login.html`
 - [ ] Setup a password changing template/system ?
+- [ ] English and french version using html ?
