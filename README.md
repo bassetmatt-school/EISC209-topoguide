@@ -28,7 +28,7 @@ A trip will consist in the following ones :
 - Difficulty felt
 
 ## 3. TODO
-- [ ] [Auth](###5.1-Auth)
+- [x] [Auth](###5.1-Auth)
 - [ ] [Route list](###5.2-Route-list)
 - [ ] [Trip from Route](###5.3-Trip-from-Route)
 - [ ] [Trip visual](###5.4-Trip-visual)
