@@ -1,8 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.views import generic
 from .models import Itineraire
-from django.template import loader
 
 class ItinerairesView(generic.ListView):
     template_name = 'itineraires/itineraires.html'
