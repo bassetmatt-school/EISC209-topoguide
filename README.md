@@ -46,7 +46,6 @@ This document is on git, should be okay
 - [x] Write template in `templates/registration/`
 - [x] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
 - [ ] Add `@login_required()` on every view
-
 ### 5.2 Route list
 - [x] Redirect here after login
 - [ ] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
@@ -62,3 +61,7 @@ This document is on git, should be okay
 ### 5.6 Edit trip
 ### 5.7 Navigation ?
 - [ ] Menu
+
+### 5.x Extra ideas 
+- [ ] Refine the template for `login.html`
+- [ ] Setup a password changing template/system ?
