@@ -5,16 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itineraires</title>
+    <style>
+        td,th {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    {% if route_list %}
-    <ul>
+    <h1>Itineraires</h1>
+{% if route_list %}
+<table>
+    <tr>
+        <th>Itineraire</th>
+        <th>Durée estimée</th>
+        <th>Difficulté estimée</th>
+    </tr>
     {% for route in route_list %}
-        <li>{{ route.title }}</li>
+    <tr>
+        <td>{{ route.title }}</td>
+        <td>{{ route.estim_duration }}</td>
+        <td>{{ route.estim_difficulty }}</td>
+    </tr>
     {% endfor %}
-    </ul>
-    {% else %}
-        <p>No routes ?</p>
-    {% endif %}
+</table>
+{% else %}
+    <p>No routes ?</p>
+{% endif %}
+<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 </body>
 </html>
