@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itineraires</title>
+</head>
+<body>
+    {% if route_list %}
+    <ul>
+    {% for route in route_list %}
+        <li>{{ route.title }}</li>
+    {% endfor %}
+    </ul>
+    {% else %}
+        <p>No routes ?</p>
+    {% endif %}
+</body>
+</html>
