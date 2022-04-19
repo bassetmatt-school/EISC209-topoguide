@@ -44,11 +44,11 @@ This document is on git, should be okay
 - [x] Use the `User` class from `django` (see [this](https://docs.djangoproject.com/fr/4.0/topics/auth/default/))
 - [x] Use the integrated url management
 - [x] Write template in `templates/registration/`
-- [ ] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
-- [ ] Add `@login_required()` on every page
+- [x] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
+- [ ] Add `@login_required()` on every view
 
 ### 5.2 Route list
-- [ ] Redirect here after login
+- [x] Redirect here after login
 - [ ] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
 - [ ] Add a few routes
 - [ ] Create a view in `views.py` that gets the routes and returns the appropriate HTML template

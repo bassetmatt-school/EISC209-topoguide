@@ -26,6 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Login and logout redirection 
+LOGIN_REDIRECT_URL  = '/itineraires'
+LOGOUT_REDIRECT_URL = '/accounts/login'
+
 
 # Application definition
 
