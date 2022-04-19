@@ -49,7 +49,7 @@ This document is on git, should be okay
 ### 5.2 Route list
 - [x] Redirect here after login
 - [x] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
-- [ ] Add a few routes
+- [x] Add a few routes
 - [ ] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
 - [ ] Set the url to `itineraires/`
 - [ ] Set the redirect value here if the login successes (next variable from auth)
@@ -66,3 +66,4 @@ This document is on git, should be okay
 - [ ] Refine the template for `login.html`
 - [ ] Setup a password changing template/system ?
 - [ ] English and french version using html ?
+- [ ] Favicons
