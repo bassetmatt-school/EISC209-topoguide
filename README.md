@@ -47,13 +47,13 @@ This document is on git, should be okay
 - [x] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
 - [ ] Add `@login_required()` on every view
 ### 5.2 Route list
-- [x] Redirect here after login
 - [x] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
 - [x] Add a few routes
-- [ ] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
-- [ ] Set the url to `itineraires/`
-- [ ] Set the redirect value here if the login successes (next variable from auth)
-- [ ] Create the HTML template
+- [x] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
+- [x] Set the url to `itineraires/`
+- [x] Set the redirect value here if the login successes
+- [x] Create the HTML template
+- [ ] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
 ### 5.4 Trip visual
