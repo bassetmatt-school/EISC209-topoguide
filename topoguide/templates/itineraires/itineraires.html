@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Itineraires</title>
     <style>
+        table {
+            width : 100%;
+        }
         td,th {
-            text-align: center;
+            text-align: left;
+            width: 30%;
         }
     </style>
 </head>
@@ -22,9 +26,14 @@
     </tr>
     {% for route in route_list %}
     <tr>
-        <td>{{ route.title }}</td>
+        <td>
+            <!--Change the link later-->
+            <a href="{% url 'itineraires:itineraires'%}">
+                {{ route.title }}</a>
+        </td>
+        <!--Better format to do-->
         <td>{{ route.estim_duration }}</td>
-        <td>{{ route.estim_difficulty }}</td>
+        <td>{{ route.estim_difficulty }}/5</td>
     </tr>
     {% endfor %}
 </table>

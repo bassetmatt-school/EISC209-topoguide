@@ -6,5 +6,6 @@ app_name = 'itineraires'
 urlpatterns = [
     path('', login_required(
         views.ItinerairesView.as_view(
-            template_name='itineraires/itineraires.html'))),
+            template_name='itineraires/itineraires.html')),
+         name='itineraires'),
 ]
