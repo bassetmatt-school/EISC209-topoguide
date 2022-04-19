@@ -29,7 +29,7 @@ A trip will consist in the following ones :
 
 ## 3. TODO
 - [x] [Auth](###5.1-Auth)
-- [ ] [Route list](###5.2-Route-list)
+- [x] [Route list](###5.2-Route-list)
 - [ ] [Trip from Route](###5.3-Trip-from-Route)
 - [ ] [Trip visual](###5.4-Trip-visual)
 - [ ] [Create trip](###5.5-Create-trip)
@@ -53,7 +53,8 @@ This document is on git, should be okay
 - [x] Set the url to `itineraires/`
 - [x] Set the redirect value here if the login successes
 - [x] Create the HTML template
-- [ ] Have something just enough nice-looking
+- [x] Have `@login_required()` (or equivalent)
+- [x] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
 ### 5.4 Trip visual
@@ -64,6 +65,7 @@ This document is on git, should be okay
 
 ### 5.x Extra ideas 
 - [ ] Refine the template for `login.html`
+- [ ] Better style for every page obviously
 - [ ] Setup a password changing template/system ?
 - [ ] English and french version using html ?
 - [ ] Favicons
