@@ -34,6 +34,7 @@ LOGOUT_REDIRECT_URL = '/accounts/login'
 # Application definition
 
 INSTALLED_APPS = [
+    'itineraires.apps.ItinerairesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
