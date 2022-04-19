@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,6 +25,10 @@ SECRET_KEY = 'django-insecure-8=wrnz#@lxpccf+g+d#+vc8x@7nu5(!@2%n4^2ht+p9r#rssrt
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# Login and logout redirection 
+LOGIN_REDIRECT_URL  = '/itineraires'
+LOGOUT_REDIRECT_URL = '/accounts/login'
 
 
 # Application definition
@@ -54,7 +57,7 @@ ROOT_URLCONF = 'topoguide.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
