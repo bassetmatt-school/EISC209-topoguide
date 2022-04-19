@@ -29,7 +29,7 @@ A trip will consist in the following ones :
 
 ## 3. TODO
 - [x] [Auth](###5.1-Auth)
-- [ ] [Route list](###5.2-Route-list)
+- [x] [Route list](###5.2-Route-list)
 - [ ] [Trip from Route](###5.3-Trip-from-Route)
 - [ ] [Trip visual](###5.4-Trip-visual)
 - [ ] [Create trip](###5.5-Create-trip)
@@ -47,13 +47,14 @@ This document is on git, should be okay
 - [x] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
 - [ ] Add `@login_required()` on every view
 ### 5.2 Route list
-- [x] Redirect here after login
-- [ ] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
-- [ ] Add a few routes
-- [ ] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
-- [ ] Set the url to `itineraires/`
-- [ ] Set the redirect value here if the login successes (next variable from auth)
-- [ ] Create the HTML template
+- [x] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
+- [x] Add a few routes
+- [x] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
+- [x] Set the url to `itineraires/`
+- [x] Set the redirect value here if the login successes
+- [x] Create the HTML template
+- [x] Have `@login_required()` (or equivalent)
+- [x] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
 ### 5.4 Trip visual
@@ -64,4 +65,7 @@ This document is on git, should be okay
 
 ### 5.x Extra ideas 
 - [ ] Refine the template for `login.html`
+- [ ] Better style for every page obviously
 - [ ] Setup a password changing template/system ?
+- [ ] English and french version using html ?
+- [ ] Favicons

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Itineraires</title>
+    <style>
+        table {
+            width : 100%;
+        }
+        td,th {
+            text-align: left;
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Itineraires</h1>
+{% if route_list %}
+<table>
+    <tr>
+        <th>Itineraire</th>
+        <th>Durée estimée</th>
+        <th>Difficulté estimée</th>
+    </tr>
+    {% for route in route_list %}
+    <tr>
+        <td>
+            <!--Change the link later-->
+            <a href="{% url 'itineraires:itineraires'%}">
+                {{ route.title }}</a>
+        </td>
+        <!--Better format to do-->
+        <td>{{ route.estim_duration }}</td>
+        <td>{{ route.estim_difficulty }}/5</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No routes ?</p>
+{% endif %}
+<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
+</body>
+</html>
