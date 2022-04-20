@@ -18,8 +18,8 @@ The app will feature a list of routes which will have the following attributes :
 - Difficulty (from 1 to 5)
 
 A trip will consist in the following ones :
-- The registering user
-- Corresponding route
+- The registering user **key**
+- Corresponding route **key**
 - Trip date
 - Actual duration (hours)
 - Number of people that participated
@@ -47,7 +47,7 @@ This document is on git, should be okay
 - [x] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
 - [ ] Add `@login_required()` on every view
 ### 5.2 Route list
-- [x] Add `itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
+- [x] Add `Itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
 - [x] Add a few routes
 - [x] Create a view in `views.py` that gets the routes and returns the appropriate HTML template
 - [x] Set the url to `itineraires/`
@@ -57,11 +57,39 @@ This document is on git, should be okay
 - [x] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
+- [ ] Add `Sortie` class in `models.py`
+- [ ] Add a few trips
+- [ ] Create a view `sorties` that gets the trips
+- [ ] The view must be at `/sorties/<route id>`
+- [ ] Create template
+- [ ] Create a link to see/modify the trip
+- [ ] Create a button to add a trip
+- [ ] Have `@login_required()` (or equivalent)
+- [ ] Have something just enough nice-looking
+
 ### 5.4 Trip visual
+- [ ] Create a view `sortie` to visualise a trip
+- [ ] The view must be at `sortie/<trip id>`
+- [ ] Create template
+- [ ] Have `@login_required()` (or equivalent)
+- [ ] Have something just enough nice-looking
+
 ### 5.5 Create trip
+- [ ] Create a view `nouvelle_sortie`
+- [ ] Redirect to the trip visual once it's created
+- [ ] The view must be at `/nouvelle_sortie/`
+- [ ] Have `@login_required()` (or equivalent)
+- [ ] Have something just enough nice-looking
+
 ### 5.6 Edit trip
+- [ ] Create a view `modif_sortie` that will summon the entry modification form
+- [ ] Redirect to the trip visual once it's saved
+- [ ] Adapt the previous template for modification
+- [ ] Have `@login_required()` (or equivalent) + must be restricted to the user that created this trip
+- [ ] Have something just enough nice-looking
+
 ### 5.7 Navigation ?
-- [ ] Menu
+- [ ] Implement a navigation system, menu ?
 
 ### 5.x Extra ideas 
 - [ ] Refine the template for `login.html`
@@ -69,3 +97,4 @@ This document is on git, should be okay
 - [ ] Setup a password changing template/system ?
 - [ ] English and french version using html ?
 - [ ] Favicons
+- [ ] Have a button "save and continue edit" in the creation/modification of a trip
