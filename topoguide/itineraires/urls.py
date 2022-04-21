@@ -2,10 +2,21 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from . import views
 
-app_name = 'itineraires'
+app_name = 'it'
 urlpatterns = [
-    path('', login_required(
-        views.ItinerairesView.as_view(
-            template_name='itineraires/itineraires.html')),
-         name='itineraires'),
+    path(
+        'itineraires/', 
+        name = 'index',
+        view = login_required(
+            views.IndexView.as_view()
+        )
+    ),
+    
+    path(
+        'sorties/<int:itineraire_id>',
+        name="detail",
+        view = login_required(
+            views.sorties
+        ),
+    )
 ]

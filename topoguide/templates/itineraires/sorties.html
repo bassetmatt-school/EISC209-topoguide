@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}Topoguide - Index{% endblock %}
+{% block css%}
+table {
+    width : 100%;
+}
+td,th {
+    text-align: left;
+}
+{% endblock %}
+
+{% block body %}
+
+<h1>Sorties de {{ route.title }}</h1>
+<table>
+    <tr>
+        <th>Alt dep</th>
+        <td>{{ route.base_height }}</td>
+    </tr>
+    <tr>
+        <th>Alt min</th>
+        <td>{{ route.min_height }}</td>
+    </tr>
+    <tr>
+        <th>Alt max</th>
+        <td>{{ route.max_height }}</td>
+    </tr>
+    <tr>
+        <th>Deniv pos cum</th>
+        <td>{{ route.pos_elev_gain }}</td>
+    </tr>
+    <tr>
+        <th>Deniv neg cum</th>
+        <td>{{ route.neg_elev_gain }}</td>
+    </tr>
+    <tr>
+        <th>Estim dur</th>
+        <td>{{ route.base_height }}</td>
+    </tr>
+    <tr>
+        <th>Estim diff</th>
+        <td>{{ route.estim_difficulty }}</td>
+    </tr>
+
+</table>
+
+{% if trip_list %}
+<table>
+    <tr>
+        <th>Par</th>
+        <th>Durée réelle</th>
+        <th>Difficulté réelle</th>
+    </tr>
+    {% for trip in trip_list %}
+    <tr>
+        <td>{{ trip.user.username }}</td>
+        <!--Better format to do-->
+        <td>{{ trip.actual_duration }}</td>
+        <td>{{ trip.difficulty_felt }}/5</td>
+        <td>
+            <a href="{% url 'it:detail' trip.id%}">
+                Consulter
+            </a>
+        </td>
+        <td>Modifier</td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>No trip ?</p>
+{% endif %}
+<p> <a href="{% url 'it:index' %}">Go back</a></p>
+<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
+{% endblock %}
