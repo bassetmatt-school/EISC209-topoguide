@@ -18,12 +18,12 @@ The app will feature a list of routes which will have the following attributes :
 - Difficulty (from 1 to 5)
 
 A trip will consist in the following ones :
-- The registering user **key**
-- Corresponding route **key**
+- The registering user **(key)**
+- Corresponding route **(key)**
 - Trip date
 - Actual duration (hours)
 - Number of people that participated
-- Group experience (beginers, experienced, mixed)
+- Group experience (beginners, experienced, mixed)
 - Weather (good, neutral, bad)
 - Difficulty felt
 
