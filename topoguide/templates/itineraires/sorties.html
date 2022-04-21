@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Topoguide - Index{% endblock %}
+{% block title %}{{ route.title }} - Details{% endblock %}
 {% block css%}
 table {
     width : 100%;
@@ -69,6 +69,7 @@ td,th {
 {% else %}
     <p>No trip ?</p>
 {% endif %}
+<p> <a href="{% url 'it:detail' %}"> Nouvelle sortie</a></p>
 <p> <a href="{% url 'it:index' %}">Go back</a></p>
 <p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 {% endblock %}
