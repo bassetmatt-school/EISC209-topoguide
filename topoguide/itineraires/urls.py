@@ -8,6 +8,7 @@ urlpatterns = [
         views.ItinerairesView.as_view(
             template_name='itineraires/itineraires.html')),
          name='itineraires'),
+    
     path('sorties/<int:itineraire_id>',
          views.sorties,
          name="sorties")

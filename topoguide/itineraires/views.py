@@ -10,10 +10,15 @@ class ItinerairesView(generic.ListView):
         return Itineraire.objects.order_by('title')
 
 def sorties(request, itineraire_id):
-    itineraire = get_object_or_404(Itineraire,pk=itineraire_id)
+    route = get_object_or_404(Itineraire,pk=itineraire_id)
+    trip_list = Sortie.objects.all().filter(route=route)
+    context = {
+        'route' : route,
+        'trip_list' : trip_list
+    }
     return render(request,
                   'itineraires/sorties.html',
-                  {'itineraire_id':itineraire.id})
+                  context)
 
 """
 class SortiesView(generic.DetailView):
