@@ -2,7 +2,7 @@ from django.shortcuts import get_object_or_404, render
 from django.views import generic
 from .models import Itineraire, Sortie
 
-class ItinerairesView(generic.ListView):
+class IndexView(generic.ListView):
     template_name = 'itineraires/itineraires.html'
     context_object_name = 'route_list'
     
@@ -21,7 +21,7 @@ def sorties(request, itineraire_id):
                   context)
 
 """
-class SortiesView(generic.DetailView):
+class DetailView(generic.DetailView):
     model = Itineraire
     album = get_object_or_404(Sortie, pk=model.id)
 """ 
