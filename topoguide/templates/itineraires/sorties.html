@@ -53,19 +53,22 @@ td,th {
     </tr>
     {% for trip in trip_list %}
     <tr>
-        <td>
-            <!--Change the link later-->
-            <a href="{% url 'itineraires:itineraires'%}">
-                {{ trip.user.username }}</a>
-        </td>
+        <td>{{ trip.user.username }}</td>
         <!--Better format to do-->
         <td>{{ trip.actual_duration }}</td>
         <td>{{ trip.difficulty_felt }}/5</td>
+        <td>
+            <a href="{% url 'it:detail' trip.id%}">
+                Consulter
+            </a>
+        </td>
+        <td>Modifier</td>
     </tr>
     {% endfor %}
 </table>
 {% else %}
     <p>No trip ?</p>
 {% endif %}
+<p> <a href="{% url 'it:index' %}">Go back</a></p>
 <p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 {% endblock %}
