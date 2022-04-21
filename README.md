@@ -30,7 +30,7 @@ A trip will consist in the following ones :
 ## 3. TODO
 - [x] [Auth](###5.1-Auth)
 - [x] [Route list](###5.2-Route-list)
-- [ ] [Trip from Route](###5.3-Trip-from-Route)
+- [x] [Trip from Route](###5.3-Trip-from-Route)
 - [ ] [Trip visual](###5.4-Trip-visual)
 - [ ] [Create trip](###5.5-Create-trip)
 - [ ] [Edit trip](###5.6-Edit-trip)
@@ -57,15 +57,15 @@ This document is on git, should be okay
 - [x] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
-- [ ] Add `Sortie` class in `models.py`
-- [ ] Add a few trips
-- [ ] Create a view `sorties` that gets the trips
-- [ ] The view must be at `/sorties/<route id>`
-- [ ] Create template
-- [ ] Create a link to see/modify the trip
-- [ ] Create a button to add a trip
-- [ ] Have `@login_required()` (or equivalent)
-- [ ] Have something just enough nice-looking
+- [x] Add `Sortie` class in `models.py`
+- [x] Add a few trips
+- [x] Create a view `sorties` that gets the trips
+- [x] The view must be at `/sorties/<route id>`
+- [x] Create template
+- [x] Create a link to see/modify the trip
+- [x] Create a button to add a trip
+- [x] Have `@login_required()` (or equivalent)
+- [x] Have something just enough nice-looking
 
 ### 5.4 Trip visual
 - [ ] Create a view `sortie` to visualise a trip
