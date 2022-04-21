@@ -32,7 +32,16 @@ class Itineraire(models.Model) :
     
     def __str__(self) :
         return self.title
-
+    
+    def time_formatted(self) :
+        s = ""
+        if self.estim_duration.hour > 0 :
+            s+= f"{self.estim_duration.hour:2d}h"
+            if self.estim_duration.minute > 0 :
+                s += f"{self.estim_duration.minute:02d}"
+        elif self.estim_duration.minute > 0 :
+            s+= f"{self.estim_duration.minute:2d} min"
+        return s
 class Sortie(models.Model) :
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     route = models.ForeignKey(Itineraire, on_delete=models.CASCADE)
