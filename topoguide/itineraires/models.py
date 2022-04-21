@@ -35,8 +35,10 @@ class Itineraire(models.Model) :
 class Sortie(models.Model) :
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     route = models.ForeignKey(Itineraire, on_delete=models.CASCADE)
-    date = models.DateField(timezone.now().date())
+    date = models.DateField(default=timezone.now().date())
     actual_duration = models.DurationField(default=timedelta(hours=1))
+    # To use instead of durationfield
+    #field = models.TimeField()
     number_people = models.IntegerField(default=1)
     
     XP_LEVEL = [
