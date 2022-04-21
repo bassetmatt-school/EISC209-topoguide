@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block body %}
 {% if form.errors %}
 <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
@@ -38,5 +33,4 @@
 
 {# Assumes you setup the password_reset view in your URLconf #}
 <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-</body>
-</html>
+{% endblock %}
