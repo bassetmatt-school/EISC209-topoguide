@@ -3,6 +3,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+from datetime import time
 
 class Itineraire(models.Model) :
     #Main info
@@ -20,7 +21,7 @@ class Itineraire(models.Model) :
     neg_elev_gain = models.IntegerField(default=0)
     
     #Using a timedelta object for intuitive fields for duration
-    estim_duration = models.DurationField(default=timedelta(hours=1))
+    estim_duration = models.TimeField(default=time(hour=1))
     #Ensures the difficulty is between 1 and 5
     estim_difficulty = models.IntegerField(
         default=1, 
@@ -35,10 +36,8 @@ class Itineraire(models.Model) :
 class Sortie(models.Model) :
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     route = models.ForeignKey(Itineraire, on_delete=models.CASCADE)
-    date = models.DateField(default=timezone.now().date())
-    actual_duration = models.DurationField(default=timedelta(hours=1))
-    # To use instead of durationfield
-    #field = models.TimeField()
+    date = models.DateField(default=timezone.now)
+    actual_duration = models.TimeField(default=time(hour=1))
     number_people = models.IntegerField(default=1)
     
     XP_LEVEL = [
