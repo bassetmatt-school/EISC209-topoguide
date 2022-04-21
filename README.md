@@ -98,3 +98,4 @@ This document is on git, should be okay
 - [ ] English and french version using html ?
 - [ ] Favicons
 - [ ] Have a button "save and continue edit" in the creation/modification of a trip
+- [ ] Display the numbers of trips related to a route in the itineraire page
