@@ -4,12 +4,19 @@ from . import views
 
 app_name = 'itineraires'
 urlpatterns = [
-    path('', login_required(
-        views.ItinerairesView.as_view(
-            template_name='itineraires/itineraires.html')),
-         name='itineraires'),
+    path(
+        'itineraires/', 
+        name = 'itineraires',
+        view = login_required(
+            views.IndexView.as_view()
+        )
+    ),
     
-    path('sorties/<int:itineraire_id>',
-         views.sorties,
-         name="sorties")
+    path(
+        'sorties/<int:itineraire_id>',
+        name="sorties",
+        view = login_required(
+            views.sorties
+        ),
+    )
 ]
