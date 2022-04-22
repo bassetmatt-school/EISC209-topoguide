@@ -14,14 +14,6 @@ td,th {
 <h1>{{ route.title }} - Sortie de {{ trip.user.username }}</h1>
 <table>
     <tr>
-        <th>user </th>
-        <td>{{ trip.user.username  }}</td>
-    </tr>
-    <tr>
-        <th>route</th>
-        <td>{{ trip.route }}</td>
-    </tr>
-    <tr>
         <th>date</th>
         <td>{{ trip.date }}</td>
     </tr>
@@ -35,15 +27,15 @@ td,th {
     </tr>
     <tr>
         <th>group_xp </th>
-        <td>{{ trip.group_xp  }}</td>
+        <td>{{ trip.get_group_xp_display}}</td>
     </tr>
     <tr>
         <th>weather</th>
-        <td>{{ trip.weather }}</td>
+        <td>{{ trip.get_weather_display}}</td>
     </tr>
     <tr>
         <th>difficulty_felt</th>
-        <td>{{ trip.difficulty_felt }}</td>
+        <td>{{ trip.difficulty_felt }}/5</td>
     </tr>
 </table>
 
