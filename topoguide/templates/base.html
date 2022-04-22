@@ -10,7 +10,9 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="{% url 'itin:index' %}">Home</a>
+        <a href="{% url 'itin:index' %}">Acceuil</a>
+        <a href="{{ request.META.HTTP_REFERER }}">Page précédente</a>
+        <!--If need to add specific buttons in some pages-->
         {% block topnav%}
         {% endblock %}
         <!--Logout button-->

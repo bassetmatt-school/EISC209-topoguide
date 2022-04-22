@@ -67,13 +67,13 @@
     {% endfor %}
 </table>
 {% else %}
-    <p>Pas de sorties enregistrée. <br> Vous pouvez en créer une 
+    <p class="rawtext">Pas de sorties enregistrées. <br> Vous pouvez en créer une 
     en cliquant sur le boutton ce dessous : </p>
 {% endif %}
 
 
 <form action = "{% url 'itin:new_trip' %}" method = "get">
-    <button class="normal" name="route_id" value="{{route.id}}"> New trip</button>
+    <button class="button-85" name="route_id" value="{{route.id}}"> Nouvelle sortie</button>
 </form>
 
 
