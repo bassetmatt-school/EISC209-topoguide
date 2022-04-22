@@ -18,5 +18,13 @@ urlpatterns = [
         view = login_required(
             views.sorties
         ),
+    ),
+    
+    path(
+        'sortie/<int:trip_id>',
+        name="sortie_view",
+        view = login_required(
+            views.sortie
+        )
     )
 ]
