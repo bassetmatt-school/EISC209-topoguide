@@ -1,37 +1,44 @@
 {% extends 'base.html' %}
-{% block title %}Sortie de {{ trip.user.username }}{% endblock %}
+<!--Title of the page-->
+{% block title %}
+Sortie de {{ trip.user.username }}
+{% endblock %}
 
 {% block body %}
 
-<h1>{{ route.title }} - Sortie de {{ trip.user.username }}</h1>
+<h1>
+    <a href="{% url 'itin:detail_route' route.id%}">
+        {{ route.title }} 
+    </a> - Sortie de {{ trip.user.username }}
+</h1>
 <table>
     <tr>
-        <th>date</th>
+        <th>Date de la sortie</th>
         <td>{{ trip.date }}</td>
     </tr>
     <tr>
-        <th>actual_duration</th>
+        <th>Durée réelle</th>
         <td>{{ trip.time_display }}</td>
     </tr>
     <tr>
-        <th>number_people</th>
+        <th>Nombre de participants</th>
         <td>{{ trip.number_people }}</td>
     </tr>
     <tr>
-        <th>group_xp </th>
+        <th>Expérience du groupe</th>
         <td>{{ trip.get_group_xp_display}}</td>
     </tr>
     <tr>
-        <th>weather</th>
+        <th>Conditions météo</th>
         <td>{{ trip.get_weather_display}}</td>
     </tr>
     <tr>
-        <th>difficulty_felt</th>
+        <th>Difficulté ressentie</th>
         <td>{{ trip.difficulty_felt }}/5</td>
     </tr>
 </table>
 
 
-<p> <a href="{% url 'itin:detail_route' route.id%}">Go back</a></p>
-<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
+<p> <a href="{% url 'itin:detail_route' route.id%}">Retour</a></p>
+<p style="text-align:right"> <a href="/accounts/logout">Déconnexion</a></p>
 {% endblock %}

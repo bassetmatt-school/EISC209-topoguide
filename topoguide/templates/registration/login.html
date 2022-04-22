@@ -1,17 +1,22 @@
 {% extends 'base.html' %}
-{% block title %}Login{% endblock %}
+<!--Title of the page-->
+{% block title %}
+Connexion
+{% endblock %}
 
 {% block body %}
 {% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
+<p>Votre nom d'utilisateur et votre mot de passe ne correspondent pas. 
+    Réessayez d'il vous plaît.</p>
 {% endif %}
 
 {% if next %}
     {% if user.is_authenticated %}
-        <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
+        <p>Votre compte ne vous permet pas d'accéder à cett page. Merci
+            de vous connecter avec un compte ayant les permissions requises
+        </p>
     {% else %}
-        <p>Please login to see this page.</p>
+        <p>Veuillez vous connecter pour accéder à cette page.</p>
     {% endif %}
 {% endif %}
 
@@ -19,18 +24,16 @@
 {% csrf_token %}
 <table>
     <tr>
-    <td>{{ form.username.label_tag }}</td>
+    <td>Nom d'utilisateur :</td>
     <td>{{ form.username }}</td>
     </tr>
     <tr>
-    <td>{{ form.password.label_tag }}</td>
+    <td>Mot de passe :</td>
     <td>{{ form.password }}</td>
     </tr>
 </table>
-<input type="submit" value="login" />
+<input type="submit" value="Connexion" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 {% endblock %}

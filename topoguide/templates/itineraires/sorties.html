@@ -1,37 +1,40 @@
 {% extends 'base.html' %}
-{% block title %}{{ route.title }} - Details{% endblock %}
+<!--Title of the page-->
+{% block title %}
+{{ route.title }} - Détails
+{% endblock %}
 
 {% block body %}
 
 <h1>Sorties de {{ route.title }}</h1>
 <table>
     <tr>
-        <th>Alt dep</th>
-        <td>{{ route.base_height }}</td>
+        <th>Altitude de départ</th>
+        <td>{{ route.base_height }} m</td>
     </tr>
     <tr>
-        <th>Alt min</th>
-        <td>{{ route.min_height }}</td>
+        <th>Altitude minimale</th>
+        <td>{{ route.min_height }} m</td>
     </tr>
     <tr>
-        <th>Alt max</th>
-        <td>{{ route.max_height }}</td>
+        <th>Altitude maximale</th>
+        <td>{{ route.max_height }} m</td>
     </tr>
     <tr>
-        <th>Deniv pos cum</th>
-        <td>{{ route.pos_elev_gain }}</td>
+        <th>Dénivelé cumulé positif</th>
+        <td>{{ route.pos_elev_gain }} m</td>
     </tr>
     <tr>
-        <th>Deniv neg cum</th>
-        <td>{{ route.neg_elev_gain }}</td>
+        <th>Dénivelé cumulé négatif</th>
+        <td>{{ route.neg_elev_gain }} m</td>
     </tr>
     <tr>
-        <th>Estim dur</th>
-        <td>{{ route.base_height }}</td>
+        <th>Durée estimée</th>
+        <td>{{ route.time_display }}</td>
     </tr>
     <tr>
-        <th>Estim diff</th>
-        <td>{{ route.estim_difficulty }}</td>
+        <th>Difficulté estimée</th>
+        <td>{{ route.estim_difficulty }}/5</td>
     </tr>
 
 </table>
@@ -41,12 +44,11 @@
     <tr>
         <th>Par</th>
         <th>Durée réelle</th>
-        <th>Difficulté réelle</th>
+        <th>Difficulté ressentie</th>
     </tr>
     {% for trip in trip_list %}
     <tr>
         <td>{{ trip.user.username }}</td>
-        <!--Better format to do-->
         <td>{{ trip.time_display }}</td>
         <td>{{ trip.difficulty_felt }}/5</td>
         <td>

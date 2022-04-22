@@ -1,32 +1,34 @@
 {% extends 'base.html' %}
-{% block title %}Topoguide - Index{% endblock %}
+<!--Title of the page-->
+{% block title %}
+Topoguide - Index
+{% endblock %}
 
 {% block body %}
 
-<h1>Itineraires</h1>
+<h1>Itinéraires</h1>
 {% if route_list %}
 <table>
     <tr>
-        <th>Itineraire</th>
+        <th>Itinéraire</th>
         <th>Durée estimée</th>
         <th>Difficulté estimée</th>
     </tr>
     {% for route in route_list %}
     <tr>
         <td>
-            <!--Change the link later-->
+            <!--Goes to this route-->
             <a href="{% url 'itin:detail_route' route.id%}">
                 {{ route.title }}</a>
         </td>
-        <!--Better format to do-->
         <td>{{ route.time_display }}</td>
         <td>{{ route.estim_difficulty }}/5</td>
     </tr>
     {% endfor %}
 </table>
 {% else %}
-    <p>No routes ?</p>
+    <p>Pas d'itinéraires disponibles, connectez vous en tant qu'administrateur à <a href="/admin">la page d'administration</a> pour en créer</p>
 {% endif %}
-<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
+<p style="text-align:right"> <a href="/accounts/logout">Déconnexion</a></p>
 
 {% endblock %}
