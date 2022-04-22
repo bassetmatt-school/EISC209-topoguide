@@ -25,3 +25,14 @@ class DetailView(generic.DetailView):
     model = Itineraire
     album = get_object_or_404(Sortie, pk=model.id)
 """ 
+
+def sortie(request, trip_id):
+    trip = get_object_or_404(Sortie,pk=trip_id)
+    route = trip.route
+    context = {
+        'trip' : trip,
+        'route' : route
+    }
+    return render(request,
+                  'itineraires/sortie.html',
+                  context)
