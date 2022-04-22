@@ -1,3 +1,4 @@
+from django.http import HttpResponseForbidden
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
@@ -24,7 +25,12 @@ def sorties(request, route_id):
 """
 class DetailView(generic.DetailView):
     model = Itineraire
-    album = get_object_or_404(Sortie, pk=model.id)
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['book_list'] = Book.objects.all()
+        return context
 """ 
 
 def sortie(request, trip_id):
@@ -39,7 +45,7 @@ def sortie(request, trip_id):
                   context)
 
 class TripCreateView(generic.CreateView):
-    model = Sortie
+    model = Sortie 
     fields = ['date','actual_duration','number_people','group_xp','weather','difficulty_felt']
     
     def get_success_url(self):
@@ -49,3 +55,16 @@ class TripCreateView(generic.CreateView):
         form.instance.user = self.request.user
         form.instance.route = Itineraire.objects.get(id=self.request.GET.get("route_id"))
         return super().form_valid(form)
+
+class TripUpdateView(generic.UpdateView):
+    model = Sortie
+    fields = ['date','actual_duration','number_people','group_xp','weather','difficulty_felt']
+
+    def get_success_url(self):
+        return reverse('it:sortie_view', kwargs={'trip_id': self.object.pk})
+    
+    def form_valid(self, form):
+        if form.instance.user == self.request.user :
+            return super().form_valid(form)
+        else :
+            return HttpResponseForbidden("You aren't the creator of this trip, you can't edit it")

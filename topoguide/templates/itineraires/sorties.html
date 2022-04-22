@@ -62,7 +62,9 @@ td,th {
                 Consulter
             </a>
         </td>
-        <td>Modifier</td>
+        {% if user == trip.user%}
+        <td> <a href="{% url 'it:edit_trip' trip.id%}">Modifier</a></td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>
