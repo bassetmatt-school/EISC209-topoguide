@@ -26,5 +26,13 @@ urlpatterns = [
         view = login_required(
             views.sortie
         )
+    ),
+    
+    path(
+        'nouvelle_sortie/',
+        name = "new_trip",
+        view = login_required(
+            views.TripCreateView.as_view()
+        )
     )
 ]
