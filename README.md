@@ -45,7 +45,7 @@ This document is on git, should be okay
 - [x] Use the integrated url management
 - [x] Write template in `templates/registration/`
 - [x] Setup `LOGIN_REDIRECT_URL` and `LOGOUT_REDIRECT_URL`
-- [ ] Add `@login_required()` on every view
+- [x] Add `@login_required()` on every view
 ### 5.2 Route list
 - [x] Add `Itineraire` class in `models.py` (see [2.](##2.-App-Description)) 
 - [x] Add a few routes
@@ -54,7 +54,7 @@ This document is on git, should be okay
 - [x] Set the redirect value here if the login successes
 - [x] Create the HTML template
 - [x] Have `@login_required()` (or equivalent)
-- [x] Have something just enough nice-looking
+- [ ] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
 - [x] Add `Sortie` class in `models.py`
@@ -75,10 +75,10 @@ This document is on git, should be okay
 - [ ] Have something just enough nice-looking
 
 ### 5.5 Create trip
-- [ ] Create a view `nouvelle_sortie`
-- [ ] Redirect to the trip visual once it's created
-- [ ] The view must be at `/nouvelle_sortie/`
-- [ ] Have `@login_required()` (or equivalent)
+- [x] Create a view `nouvelle_sortie`
+- [x] Redirect to the trip visual once it's created
+- [x] The view must be at `/nouvelle_sortie/`
+- [x] Have `@login_required()` (or equivalent)
 - [ ] Have something just enough nice-looking
 
 ### 5.6 Edit trip
