@@ -48,6 +48,11 @@ class TripCreateView(generic.CreateView):
     model = Sortie 
     fields = ['date','actual_duration','number_people','group_xp','weather','difficulty_felt']
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['create'] = True
+        return context
+    
     def get_success_url(self):
         return reverse('it:sortie_view', kwargs={'trip_id': self.object.pk})
     
@@ -60,6 +65,11 @@ class TripUpdateView(generic.UpdateView):
     model = Sortie
     fields = ['date','actual_duration','number_people','group_xp','weather','difficulty_felt']
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['create'] = False
+        return context
+    
     def get_success_url(self):
         return reverse('it:sortie_view', kwargs={'trip_id': self.object.pk})
     
