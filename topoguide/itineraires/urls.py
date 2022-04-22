@@ -21,19 +21,19 @@ urlpatterns = [
     
     # Details of an itineraire
     path(
-        'sorties/<int:route_id>',
+        'sorties/<int:pk>',
         name="detail_route",
         view = login_required(
-            views.sorties
-        ),
+            views.RouteDetailView.as_view()
+        )
     ),
     
     # Details of a sortie
     path(
-        'sortie/<int:trip_id>',
+        'sortie/<int:pk>',
         name="detail_trip",
         view = login_required(
-            views.sortie
+            views.TripDetailView.as_view()
         )
     ),
     

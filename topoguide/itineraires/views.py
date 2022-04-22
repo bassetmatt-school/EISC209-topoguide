@@ -11,38 +11,31 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Itineraire.objects.order_by('title')
 
-def sorties(request, route_id):
-    route = get_object_or_404(Itineraire,pk=route_id)
-    trip_list = Sortie.objects.all().filter(route=route)
-    context = {
-        'route' : route,
-        'trip_list' : trip_list
-    }
-    return render(request,
-                  'itineraires/sorties.html',
-                  context)
-
-"""
-class DetailView(generic.DetailView):
+class RouteDetailView(generic.DetailView) :
     model = Itineraire
+    template_name = "itineraires/sorties.html"
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
-        # Add in a QuerySet of all the books
-        context['book_list'] = Book.objects.all()
+        # Gets the route
+        route = self.get_object()
+        context['route'] = route
+        # Gets all trips on this route
+        context['trip_list'] = Sortie.objects.all().filter(route=route)
         return context
-""" 
 
-def sortie(request, trip_id):
-    trip = get_object_or_404(Sortie,pk=trip_id)
-    route = trip.route
-    context = {
-        'trip' : trip,
-        'route' : route
-    }
-    return render(request,
-                  'itineraires/sortie.html',
-                  context)
+class TripDetailView(generic.DetailView) :
+    model = Sortie
+    template_name = 'itineraires/sortie.html'
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Gets the trip
+        trip = self.get_object()
+        context['trip'] = trip
+        # Gets the route of the trip for more lisibility
+        context['route'] = trip.route
+        return context
 
 class TripCreateView(generic.CreateView):
     model = Sortie 
