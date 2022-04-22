@@ -1,12 +1,7 @@
 {% extends 'base.html' %}
-{% block title %}{{ route.title }} - Details{% endblock %}
-{% block css%}
-table {
-    width : 100%;
-}
-td,th {
-    text-align: left;
-}
+<!--Title of the page-->
+{% block title %}
+{{ route.title }} - Détails
 {% endblock %}
 
 {% block body %}
@@ -14,32 +9,32 @@ td,th {
 <h1>Sorties de {{ route.title }}</h1>
 <table>
     <tr>
-        <th>Alt dep</th>
-        <td>{{ route.base_height }}</td>
+        <th>Altitude de départ</th>
+        <td>{{ route.base_height }} m</td>
     </tr>
     <tr>
-        <th>Alt min</th>
-        <td>{{ route.min_height }}</td>
+        <th>Altitude minimale</th>
+        <td>{{ route.min_height }} m</td>
     </tr>
     <tr>
-        <th>Alt max</th>
-        <td>{{ route.max_height }}</td>
+        <th>Altitude maximale</th>
+        <td>{{ route.max_height }} m</td>
     </tr>
     <tr>
-        <th>Deniv pos cum</th>
-        <td>{{ route.pos_elev_gain }}</td>
+        <th>Dénivelé cumulé positif</th>
+        <td>{{ route.pos_elev_gain }} m</td>
     </tr>
     <tr>
-        <th>Deniv neg cum</th>
-        <td>{{ route.neg_elev_gain }}</td>
+        <th>Dénivelé cumulé négatif</th>
+        <td>{{ route.neg_elev_gain }} m</td>
     </tr>
     <tr>
-        <th>Estim dur</th>
-        <td>{{ route.base_height }}</td>
+        <th>Durée estimée</th>
+        <td>{{ route.time_display }}</td>
     </tr>
     <tr>
-        <th>Estim diff</th>
-        <td>{{ route.estim_difficulty }}</td>
+        <th>Difficulté estimée</th>
+        <td>{{ route.estim_difficulty }}/5</td>
     </tr>
 
 </table>
@@ -49,35 +44,37 @@ td,th {
     <tr>
         <th>Par</th>
         <th>Durée réelle</th>
-        <th>Difficulté réelle</th>
+        <th>Difficulté ressentie</th>
     </tr>
     {% for trip in trip_list %}
     <tr>
         <td>{{ trip.user.username }}</td>
-        <!--Better format to do-->
         <td>{{ trip.time_display }}</td>
         <td>{{ trip.difficulty_felt }}/5</td>
         <td>
-            <a href="{% url 'it:sortie_view' trip.id%}">
-                Consulter
+            <a href="{% url 'itin:detail_trip' trip.id%}">
+                <button class="button-31" >Consulter</button>
             </a>
         </td>
         {% if user == trip.user%}
-        <td> <a href="{% url 'it:edit_trip' trip.id%}">Modifier</a></td>
+        <td> 
+            <a href="{% url 'itin:detail_trip' trip.id%}">
+                <button class="button-31" >Modifier</button>
+            </a>
+        </td>
         {% endif %}
     </tr>
     {% endfor %}
 </table>
 {% else %}
-    <p>No trip ?</p>
+    <p class="rawtext">Pas de sorties enregistrées. <br> Vous pouvez en créer une 
+    en cliquant sur le boutton ce dessous : </p>
 {% endif %}
 
 
-<form action = "{% url 'it:new_trip' %}" method = "get">
-    <button name="route_id" value="{{route.id}}"> New trip</button>
+<form action = "{% url 'itin:new_trip' %}" method = "get">
+    <button class="button-85" name="route_id" value="{{route.id}}"> Nouvelle sortie</button>
 </form>
 
 
-<p> <a href="{% url 'it:index' %}">Go back</a></p>
-<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 {% endblock %}

@@ -2,8 +2,15 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 from . import views
 
-app_name = 'it'
+# The app name to be refered to in urls in the templates
+app_name = 'itin'
+
+# The login_required function that contains the view method
+# is the authentification control that works for both
+# generic and non-genetic views
+
 urlpatterns = [
+    #The main page
     path(
         'itineraires/', 
         name = 'index',
@@ -12,22 +19,25 @@ urlpatterns = [
         )
     ),
     
+    # Details of an itineraire
     path(
-        'sorties/<int:route_id>',
-        name="detail",
+        'sorties/<int:pk>',
+        name="detail_route",
         view = login_required(
-            views.sorties
-        ),
-    ),
-    
-    path(
-        'sortie/<int:trip_id>',
-        name="sortie_view",
-        view = login_required(
-            views.sortie
+            views.RouteDetailView.as_view()
         )
     ),
     
+    # Details of a sortie
+    path(
+        'sortie/<int:pk>',
+        name="detail_trip",
+        view = login_required(
+            views.TripDetailView.as_view()
+        )
+    ),
+    
+    # Sortie creation form
     path(
         'nouvelle_sortie/',
         name = "new_trip",
@@ -36,6 +46,7 @@ urlpatterns = [
         )
     ),
     
+    # Sortie edit form
     path(
         'modif_sortie/<int:pk>',
         name = "edit_trip",

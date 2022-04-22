@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+<!--Title of the page-->
 {% block title %}
 {% if create %}
 Nouvelle Sortie
@@ -7,18 +8,30 @@ Modification Sortie
 {% endif %}
 {% endblock %}
 
-{% block css%}
-{% endblock %}
 
 {% block body %}
-
+{% load force_dark %}
+<!--Form-->
 <form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
+    <table>
+        {% for field in form %}
+        <tr>
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            <td>
+                {{ field.label_tag }}
+            </td>
+            <td>
+                {{ field | addclass:'normal' }}
+            </td>
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+        </tr>
+        {% endfor %}
+    </table>
+    <input class="normal" type="submit" value="Save">
 </form>
 
-<a href="{{ request.META.HTTP_REFERER }}">Referring Page</a>
-
-<p> <a href="{% url 'it:index'%}">Go back</a></p>
-<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 {% endblock %}
