@@ -55,7 +55,7 @@ td,th {
     <tr>
         <td>{{ trip.user.username }}</td>
         <!--Better format to do-->
-        <td>{{ trip.actual_duration }}</td>
+        <td>{{ trip.time_display }}</td>
         <td>{{ trip.difficulty_felt }}/5</td>
         <td>
             <a href="{% url 'it:sortie_view' trip.id%}">
