@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Nouvelle Sortie{% endblock %}
+{% block css%}
+
+{% endblock %}
+
+{% block body %}
+
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+</form>
+
+<a href="{{ request.META.HTTP_REFERER }}">Referring Page</a>
+
+<p> <a href="{% url 'it:index'%}">Go back</a></p>
+<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
+{% endblock %}
