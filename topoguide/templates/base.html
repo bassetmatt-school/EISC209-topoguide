@@ -9,7 +9,26 @@
     <link rel="stylesheet" type="text/css" href="{% static 'itineraires/style.css' %}">
 </head>
 <body>
-    {% block body%}
-    {% endblock %}
+    <div class="topnav">
+        <a href="{% url 'itin:index' %}">Home</a>
+        {% block topnav%}
+        {% endblock %}
+        <!--Logout button-->
+        {% if user.is_authenticated %}
+        <a href="/accounts/logout">Déconnexion</a>
+        {% endif %}
+      </div>
+      
+      <div class="content">
+        {% block body%}
+        {% endblock %}
+      </div>
+      
+      <div class="footer">
+        <p style="text-align:center">Réalisé avec Django 4.0.4</p>
+        {% block footer%}
+        {% endblock %}
+      </div>
+    
 </body>
 </html>

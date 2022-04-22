@@ -53,25 +53,28 @@
         <td>{{ trip.difficulty_felt }}/5</td>
         <td>
             <a href="{% url 'itin:detail_trip' trip.id%}">
-                Consulter
+                <button class="button-31" >Consulter</button>
             </a>
         </td>
         {% if user == trip.user%}
-        <td> <a href="{% url 'itin:edit_trip' trip.id%}">Modifier</a></td>
+        <td> 
+            <a href="{% url 'itin:detail_trip' trip.id%}">
+                <button class="button-31" >Modifier</button>
+            </a>
+        </td>
         {% endif %}
     </tr>
     {% endfor %}
 </table>
 {% else %}
-    <p>No trip ?</p>
+    <p>Pas de sorties enregistrée. <br> Vous pouvez en créer une 
+    en cliquant sur le boutton ce dessous : </p>
 {% endif %}
 
 
 <form action = "{% url 'itin:new_trip' %}" method = "get">
-    <button name="route_id" value="{{route.id}}"> New trip</button>
+    <button class="normal" name="route_id" value="{{route.id}}"> New trip</button>
 </form>
 
 
-<p> <a href="{% url 'itin:index' %}">Go back</a></p>
-<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 {% endblock %}
