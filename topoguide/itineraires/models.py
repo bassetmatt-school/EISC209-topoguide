@@ -5,6 +5,15 @@ from django.db import models
 from django.utils import timezone
 from datetime import time
 
+def time_format(t : time) :
+        s = ""
+        if t.hour > 0 :
+            s+= f"{t.hour:2d}h"
+            if t.minute > 0 :
+                s += f"{t.minute:02d}"
+        elif t.minute > 0 :
+            s+= f"{t.minute:2d} min"
+        return s
 class Itineraire(models.Model) :
     #Main info
     title = models.CharField(max_length=50)
@@ -33,15 +42,9 @@ class Itineraire(models.Model) :
     def __str__(self) :
         return self.title
     
-    def time_formatted(self) :
-        s = ""
-        if self.estim_duration.hour > 0 :
-            s+= f"{self.estim_duration.hour:2d}h"
-            if self.estim_duration.minute > 0 :
-                s += f"{self.estim_duration.minute:02d}"
-        elif self.estim_duration.minute > 0 :
-            s+= f"{self.estim_duration.minute:2d} min"
-        return s
+    def time_display(self) :
+        return time_format(self.estim_duration)
+    
 class Sortie(models.Model) :
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     route = models.ForeignKey(Itineraire, on_delete=models.CASCADE)
@@ -49,28 +52,29 @@ class Sortie(models.Model) :
     actual_duration = models.TimeField(default=time(hour=1))
     number_people = models.IntegerField(default=1)
     
-    XP_LEVEL = [
-        ('B', "Beginners"),
-        ('E', "Experienced"),
-        ('M', "Mixed"),
-    ]
+    class xp_level(models.TextChoices):
+        BEGINNERS = 'B', ('Beginners')
+        EXPERIENCED = 'E', ('Experienced')
+        MIXED = 'M', ('Mixed')
+        def print(self):
+            return self.label
+
     
     group_xp = models.CharField(
-        choices = XP_LEVEL,
         max_length = 1,
-        default = 'B'
+        choices=xp_level.choices,
+        default=xp_level.BEGINNERS,
     )
     
-    WEATHER_TYPES = [
-        ('G', "Good"),
-        ('N', "Neutral"),
-        ('B', "Bad"),
-    ]
+    class weather_type(models.TextChoices):
+        GOOD = 'G', ('Good')
+        NEUTRAL = 'N', ('Neutral')
+        BAD = 'B', ('Bad')
     
     weather = models.CharField(
-        choices = WEATHER_TYPES,
         max_length = 1,
-        default = 'N'
+        choices=weather_type.choices,
+        default=weather_type.GOOD,
     )
     
     #Ensures the difficulty is between 1 and 5
@@ -81,5 +85,9 @@ class Sortie(models.Model) :
             MinValueValidator(1)
         ])
 
+            
     def __str__(self) :
         return f"{self.route} by {self.user}"
+    
+    def time_display(self) :
+        return time_format(self.actual_duration)
