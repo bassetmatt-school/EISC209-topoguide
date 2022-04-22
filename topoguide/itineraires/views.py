@@ -54,7 +54,7 @@ class TripCreateView(generic.CreateView):
         return context
     
     def get_success_url(self):
-        return reverse('it:sortie_view', kwargs={'trip_id': self.object.pk})
+        return reverse('itin:detail_trip', kwargs={'trip_id': self.object.pk})
     
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -71,7 +71,7 @@ class TripUpdateView(generic.UpdateView):
         return context
     
     def get_success_url(self):
-        return reverse('it:sortie_view', kwargs={'trip_id': self.object.pk})
+        return reverse('itin:detail_trip', kwargs={'trip_id': self.object.pk})
     
     def form_valid(self, form):
         if form.instance.user == self.request.user :

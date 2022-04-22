@@ -58,12 +58,12 @@ td,th {
         <td>{{ trip.time_display }}</td>
         <td>{{ trip.difficulty_felt }}/5</td>
         <td>
-            <a href="{% url 'it:sortie_view' trip.id%}">
+            <a href="{% url 'itin:detail_trip' trip.id%}">
                 Consulter
             </a>
         </td>
         {% if user == trip.user%}
-        <td> <a href="{% url 'it:edit_trip' trip.id%}">Modifier</a></td>
+        <td> <a href="{% url 'itin:edit_trip' trip.id%}">Modifier</a></td>
         {% endif %}
     </tr>
     {% endfor %}
@@ -73,11 +73,11 @@ td,th {
 {% endif %}
 
 
-<form action = "{% url 'it:new_trip' %}" method = "get">
+<form action = "{% url 'itin:new_trip' %}" method = "get">
     <button name="route_id" value="{{route.id}}"> New trip</button>
 </form>
 
 
-<p> <a href="{% url 'it:index' %}">Go back</a></p>
+<p> <a href="{% url 'itin:index' %}">Go back</a></p>
 <p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
 {% endblock %}
