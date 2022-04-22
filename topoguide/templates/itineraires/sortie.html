@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Sortie de {{ trip.user.username }}{% endblock %}
+{% block css%}
+table {
+    width : 100%;
+}
+td,th {
+    text-align: left;
+}
+{% endblock %}
+
+{% block body %}
+
+<h1>{{ route.title }} - Sortie de {{ trip.user.username }}</h1>
+<table>
+    <tr>
+        <th>user </th>
+        <td>{{ trip.user.username  }}</td>
+    </tr>
+    <tr>
+        <th>route</th>
+        <td>{{ trip.route }}</td>
+    </tr>
+    <tr>
+        <th>date</th>
+        <td>{{ trip.date }}</td>
+    </tr>
+    <tr>
+        <th>actual_duration</th>
+        <td>{{ trip.actual_duration }}</td>
+    </tr>
+    <tr>
+        <th>number_people</th>
+        <td>{{ trip.number_people }}</td>
+    </tr>
+    <tr>
+        <th>group_xp </th>
+        <td>{{ trip.group_xp  }}</td>
+    </tr>
+    <tr>
+        <th>weather</th>
+        <td>{{ trip.weather }}</td>
+    </tr>
+    <tr>
+        <th>difficulty_felt</th>
+        <td>{{ trip.difficulty_felt }}</td>
+    </tr>
+</table>
+
+
+<p> <a href="{% url 'it:detail' trip.id%}">Go back</a></p>
+<p style="text-align:right"> <a href="/accounts/logout">logout</a></p>
+{% endblock %}
