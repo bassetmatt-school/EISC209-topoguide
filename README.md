@@ -31,10 +31,10 @@ A trip will consist in the following ones :
 - [x] [Auth](###5.1-Auth)
 - [x] [Route list](###5.2-Route-list)
 - [x] [Trip from Route](###5.3-Trip-from-Route)
-- [ ] [Trip visual](###5.4-Trip-visual)
-- [ ] [Create trip](###5.5-Create-trip)
-- [ ] [Edit trip](###5.6-Edit-trip)
-- [ ] [Navigation ?](###5.7-Navigation-?)
+- [x] [Trip visual](###5.4-Trip-visual)
+- [x] [Create trip](###5.5-Create-trip)
+- [x] [Edit trip](###5.6-Edit-trip)
+- [x] [Navigation ?](###5.7-Navigation-?)
 
 ## 4. Git
 This document is on git, should be okay
@@ -54,7 +54,7 @@ This document is on git, should be okay
 - [x] Set the redirect value here if the login successes
 - [x] Create the HTML template
 - [x] Have `@login_required()` (or equivalent)
-- [ ] Have something just enough nice-looking
+- [x] Have something just enough nice-looking
 
 ### 5.3 Trip from Route
 - [x] Add `Sortie` class in `models.py`
@@ -65,35 +65,35 @@ This document is on git, should be okay
 - [x] Create a link to see/modify the trip
 - [x] Create a button to add a trip
 - [x] Have `@login_required()` (or equivalent)
-- [ ] Have something just enough nice-looking
+- [x] Have something just enough nice-looking
 
 ### 5.4 Trip visual
 - [x] Create a view `sortie` to visualise a trip
 - [x] The view must be at `sortie/<trip id>`
 - [x] Create template
 - [x] Have `@login_required()` (or equivalent)
-- [ ] Have something just enough nice-looking
+- [x] Have something just enough nice-looking
 
 ### 5.5 Create trip
 - [x] Create a view `nouvelle_sortie`
 - [x] Redirect to the trip visual once it's created
 - [x] The view must be at `/nouvelle_sortie/`
 - [x] Have `@login_required()` (or equivalent)
-- [ ] Have something just enough nice-looking
+- [x] Have something just enough nice-looking
 
 ### 5.6 Edit trip
 - [x] Create a view `modif_sortie` that will summon the entry modification form
 - [x] Redirect to the trip visual once it's saved
 - [x] Adapt the previous template for modification
 - [x] Have `@login_required()` (or equivalent) + must be restricted to the user that created this trip
-- [ ] Have something just enough nice-looking
+- [x] Have something just enough nice-looking
 
 ### 5.7 Navigation ?
-- [ ] Implement a navigation system, menu ?
+- [x] Implement a navigation system, menu ?
 
 ### 5.x Extra ideas 
 - [ ] Refine the template for `login.html`
-- [ ] Better style for every page obviously
+- [x] Better style for every page obviously
 - [ ] Setup a password changing template/system ?
 - [ ] English and french version using html ?
 - [ ] Favicons
