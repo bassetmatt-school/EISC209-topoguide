@@ -5,6 +5,7 @@ Connexion
 {% endblock %}
 
 {% block body %}
+{% load force_dark %}
 {% if form.errors %}
 <p>Votre nom d'utilisateur et votre mot de passe ne correspondent pas. 
     Réessayez d'il vous plaît.</p>
@@ -25,14 +26,14 @@ Connexion
 <table>
     <tr>
     <td>Nom d'utilisateur :</td>
-    <td>{{ form.username }}</td>
+    <td>{{ form.username | addclass:'normal' }}</td>
     </tr>
     <tr>
     <td>Mot de passe :</td>
-    <td>{{ form.password }}</td>
+    <td>{{ form.password | addclass:'normal' }}</td>
     </tr>
 </table>
-<input type="submit" value="Connexion" />
+<input class = "normal" type="submit" value="Connexion" />
 <input type="hidden" name="next" value="{{ next }}" />
 </form>
 
