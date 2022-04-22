@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
 from django.views import generic
 from .models import Itineraire, Sortie
 
@@ -36,3 +37,15 @@ def sortie(request, trip_id):
     return render(request,
                   'itineraires/sortie.html',
                   context)
+
+class TripCreateView(generic.CreateView):
+    model = Sortie
+    fields = ['date','actual_duration','number_people','group_xp','weather','difficulty_felt']
+    
+    def get_success_url(self):
+        return reverse('it:sortie_view', kwargs={'trip_id': self.object.pk})
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.route = Itineraire.objects.get(id=self.request.GET.get("route_id"))
+        return super().form_valid(form)
