@@ -65,13 +65,13 @@ This document is on git, should be okay
 - [x] Create a link to see/modify the trip
 - [x] Create a button to add a trip
 - [x] Have `@login_required()` (or equivalent)
-- [x] Have something just enough nice-looking
+- [ ] Have something just enough nice-looking
 
 ### 5.4 Trip visual
-- [ ] Create a view `sortie` to visualise a trip
-- [ ] The view must be at `sortie/<trip id>`
-- [ ] Create template
-- [ ] Have `@login_required()` (or equivalent)
+- [x] Create a view `sortie` to visualise a trip
+- [x] The view must be at `sortie/<trip id>`
+- [x] Create template
+- [x] Have `@login_required()` (or equivalent)
 - [ ] Have something just enough nice-looking
 
 ### 5.5 Create trip
