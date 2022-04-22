@@ -34,5 +34,13 @@ urlpatterns = [
         view = login_required(
             views.TripCreateView.as_view()
         )
+    ),
+    
+    path(
+        'modif_sortie/<int:pk>',
+        name = "edit_trip",
+        view = login_required(
+            views.TripUpdateView.as_view()
+        )
     )
 ]
