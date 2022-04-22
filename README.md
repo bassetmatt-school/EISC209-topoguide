@@ -82,10 +82,10 @@ This document is on git, should be okay
 - [ ] Have something just enough nice-looking
 
 ### 5.6 Edit trip
-- [ ] Create a view `modif_sortie` that will summon the entry modification form
-- [ ] Redirect to the trip visual once it's saved
-- [ ] Adapt the previous template for modification
-- [ ] Have `@login_required()` (or equivalent) + must be restricted to the user that created this trip
+- [x] Create a view `modif_sortie` that will summon the entry modification form
+- [x] Redirect to the trip visual once it's saved
+- [x] Adapt the previous template for modification
+- [x] Have `@login_required()` (or equivalent) + must be restricted to the user that created this trip
 - [ ] Have something just enough nice-looking
 
 ### 5.7 Navigation ?
