@@ -103,7 +103,13 @@ class Sortie(models.Model) :
     route = models.ForeignKey(Itineraire,verbose_name="Itinéraire", on_delete=models.CASCADE)
     date = models.DateField("Date de la sortie",default=timezone.now)
     actual_duration = models.TimeField("Durée réelle",default=time(hour=1))
-    number_people = models.IntegerField("Nombre de participants",default=1)
+    number_people = models.IntegerField(
+        "Nombre de participants",
+        default=1,
+        validators=[
+            MinValueValidator(1)
+        ]
+        )
     
     group_xp = models.CharField(
         "Expérience du groupe",
