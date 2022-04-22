@@ -9,8 +9,8 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Itineraire.objects.order_by('title')
 
-def sorties(request, itineraire_id):
-    route = get_object_or_404(Itineraire,pk=itineraire_id)
+def sorties(request, route_id):
+    route = get_object_or_404(Itineraire,pk=route_id)
     trip_list = Sortie.objects.all().filter(route=route)
     context = {
         'route' : route,

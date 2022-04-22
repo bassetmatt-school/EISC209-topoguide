@@ -13,7 +13,7 @@ urlpatterns = [
     ),
     
     path(
-        'sorties/<int:itineraire_id>',
+        'sorties/<int:route_id>',
         name="detail",
         view = login_required(
             views.sorties
